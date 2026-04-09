@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodata - Nur Alam</title>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: 'Segoe UI', Tahoma, sans-serif;
+background: #fce8ef;
+}
+
+.cv-container {
+max-width: 900px;
+margin: 30px auto;
+background: #fff;
+display: flex;
+box-shadow: 0 4px 24px rgba(210,100,130,0.13);
+border-radius: 8px;
+overflow: hidden;
+}
+
+.sidebar {
+width: 33%;
+background: linear-gradient(180deg, #e8758a 0%, #f2a0b0 60%, #fce0e8 100%);
+color: #fff;
+padding: 30px 22px;
+display: flex;
+flex-direction: column;
+gap: 22px;
+}
+
+.foto-box {
+width: 150px;
+height: 150px;
+border-radius: 50%;
+background: linear-gradient(135deg, #fff 0%, #fce0e8 100%);
+border: 4px solid #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 40px;
+font-weight: bold;
+color: #e8758a;
+margin: 0 auto;
+}
+
+.nama-sidebar {
+text-align: center;
+font-size: 17px;
+font-weight: 700;
+margin-top: 4px;
+color: #fff;
+}
+
+.jabatan-sidebar {
+text-align: center;
+font-size: 12px;
+color: #fce8ef;
+margin-top: 2px;
+}
+
+.sidebar-section h3 {
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #fff;
+border-bottom: 1px solid rgba(255,255,255,0.4);
+padding-bottom: 6px;
+margin-bottom: 12px;
+font-weight: 700;
+}
+
+address { font-style: normal; }
+address ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+address ul li {
+font-size: 12px;
+color: #fff;
+display: flex;
+align-items: flex-start;
+gap: 8px;
+line-height: 1.5;
+}
+
+.skill-item { margin-bottom: 11px; }
+.skill-label {
+
+display: flex;
+justify-content: space-between;
+font-size: 12px;
+color: #fff;
+margin-bottom: 5px;
+}
+.skill-pct { color: #fff; font-weight: 700; }
+.bar {
+background: rgba(255,255,255,0.3);
+border-radius: 20px;
+overflow: hidden;
+height: 7px;
+}
+.bar span {
+display: block;
+height: 100%;
+background: #fff;
+border-radius: 20px;
+}
+
+.lang-table {
+width: 100%;
+border-collapse: collapse;
+font-size: 12px;
+color: #fff;
+}
+.lang-table td { padding: 5px 0; }
+.lang-table td:last-child { text-align: right; }
+.badge {
+background: rgba(255,255,255,0.25);
+color: #fff;
+font-size: 10px;
+
+padding: 2px 8px;
+border-radius: 99px;
+border: 1px solid rgba(255,255,255,0.5);
+}
+
+.content {
+width: 67%;
+padding: 36px 32px;
+display: flex;
+flex-direction: column;
+gap: 22px;
+background: linear-gradient(160deg, #fff 70%, #fce8ef 100%);
+}
+
+.cv-header { border-bottom: 2px solid #f2c0cc; padding-bottom: 16px; }
+.cv-header h1 { font-size: 28px; color: #b5445a; }
+.cv-header p { color: #c07080; font-size: 13px; margin-top: 4px; font-style: italic; }
+
+.section h3 {
+font-size: 11px;
+font-weight: 700;
+color: #c0556a;
+text-transform: uppercase;
+letter-spacing: 1.8px;
+border-left: 4px solid #e8758a;
+padding-left: 10px;
+margin-bottom: 12px;
+}
+
+.profil-text {
+font-size: 13px;
+line-height: 1.85;
+
+color: #555;
+}
+
+.timeline { display: flex; flex-direction: column; gap: 14px; }
+.tl-item {
+display: grid;
+grid-template-columns: 100px 1fr;
+gap: 12px;
+align-items: start;
+}
+.tl-tahun { font-size: 11px; color: #b08090; text-align: right; padding-top: 2px; line-height:
+1.5; }
+.tl-body h4 { font-size: 13px; color: #333; font-weight: 600; }
+.tl-body p { font-size: 12px; color: #888; margin-top: 3px; line-height: 1.55; }
+
+.proyek-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.proyek-list li {
+font-size: 13px;
+color: #444;
+padding: 8px 12px;
+background: #fdf0f3;
+border-left: 3px solid #e8758a;
+border-radius: 0 4px 4px 0;
+}
+.proyek-list li strong { color: #b5445a; }
+
+.hobi-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.hobi-list li {
+background: #fdf0f3;
+color: #c0556a;
+font-size: 12px;
+padding: 4px 14px;
+
+border-radius: 99px;
+border: 1px solid #f2a0b0;
+}
+
+details {
+border: 1px solid #f2c0cc;
+border-radius: 6px;
+padding: 8px 14px;
+font-size: 13px;
+color: #555;
+background: #fdf0f3;
+}
+summary {
+cursor: pointer;
+font-weight: 600;
+color: #b5445a;
+padding: 2px 0;
+}
+details p { margin-top: 8px; line-height: 1.7; }
+
+@media print {
+body { background: white; }
+.cv-container { box-shadow: none; margin: 0; border-radius: 0; }
+}
+
+@media (max-width: 640px) {
+.cv-container { flex-direction: column; }
+.sidebar, .content { width: 100%; }
+.tl-item { grid-template-columns: 80px 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cv-container">
+
+<aside class="sidebar">
+
+<div>
+<div class="foto-box">
+
+<img src="nur.jpeg" alt="Foto Nur Alam" style="width:100%; height:100%; border-
+radius:50%;">
+
+</div>
+<p class="nama-sidebar">Nur Alam</p>
+<p class="jabatan-sidebar">Mahasiswa Ilmu Komputer</p>
+</div>
+
+<div class="sidebar-section">
+<h3>Kontak</h3>
+<address>
+<ul>
+<li> Ambon, Maluku</li>
+<li> +62 822-9925-4454</li>
+<li> nurralamm612@email.com</li>
+<li> github.com/nurralamm612</li>
+</ul>
+</address>
+</div>
+
+<div class="sidebar-section">
+<h3>Keahlian</h3>
+<div class="skill-item">
+
+<div class="skill-label"><span>HTML &amp; CSS</span><span class="skill-
+pct">65%</span></div>
+
+<div class="bar"><span style="width:65%"></span></div>
+</div>
+<div class="skill-item">
+<div class="skill-label"><span>Python</span><span class="skill-pct">75%</span></div>
+<div class="bar"><span style="width:75%"></span></div>
+</div>
+<div class="skill-item">
+
+<div class="skill-label"><span>Microsoft Office</span><span class="skill-
+pct">85%</span></div>
+
+<div class="bar"><span style="width:85%"></span></div>
+</div>
+<div class="skill-item">
+
+<div class="skill-label"><span>Analisis Data</span><span class="skill-
+pct">60%</span></div>
+
+<div class="bar"><span style="width:60%"></span></div>
+</div>
+</div>
+
+<div class="sidebar-section">
+<h3>Bahasa</h3>
+<table class="lang-table">
+<tbody>
+<tr><td>Indonesia</td><td><span class="badge">Mahir</span></td></tr>
+<tr><td>Inggris</td><td><span class="badge">Dasar</span></td></tr>
+<tr><td>Ambon</td><td><span class="badge">Lanjut</span></td></tr>
+</tbody>
+</table>
+</div>
+
+</aside>
+
+<!-- KONTEN -->
+<main class="content">
+
+<header class="cv-header">
+<h1>Nur Alam</h1>
+<p>Mahasiswa Ilmu Komputer</p>
+</header>
+
+<section class="section">
+<h3>Profil</h3>
+<p class="profil-text">
+Mahasiswa Ilmu Komputer yang memiliki minat dalam pengembangan web dan teknologi
+digital.
+Memiliki pemahaman dasar dalam HTML, Python, serta analisis sistem. Terbiasa bekerja
+secara individu maupun tim,
+serta memiliki kemampuan komunikasi yang baik. Aktif dalam berbagai proyek akademik
+dan memiliki semangat untuk terus belajar dan berkembang di bidang teknologi informasi.
+</p>
+</section>
+
+<section class="section">
+<h3>Pendidikan</h3>
+<div class="timeline">
+<div class="tl-item">
+<span class="tl-tahun">2024 – Skrg</span>
+<div class="tl-body">
+<h4>Ilmu Komputer</h4>
+<p>Universitas Pattimura, Ambon<br>
+<abbr title="Indeks Prestasi Kumulatif">IPK</abbr>: 3.40 / 4.00 — Sedang
+
+berjalan</p>
+</div>
+</div>
+<div class="tl-item">
+<span class="tl-tahun">2021 – 2024</span>
+<div class="tl-body">
+<h4>SMA Negeri 1 Ambon</h4>
+
+<p>Jurusan <abbr title="Ilmu Pengetahuan Alam">IPA</abbr></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h3>Pengalaman</h3>
+<div class="timeline">
+<div class="tl-item">
+<span class="tl-tahun">2024 – Skrg</span>
+<div class="tl-body">
+<h4>Praktikum Ilmu Komputer</h4>
+<p>Universitas Pattimura, Ambon<br>
+Mengikuti praktikum dasar pemrograman dan logika komputasi</p>
+</div>
+</div>
+<div class="tl-item">
+<span class="tl-tahun">2024 – Skrg</span>
+<div class="tl-body">
+<h4>Tugas Kelompok &amp; Kolaborasi</h4>
+<p>Aktif dalam kerja kelompok di berbagai mata kuliah,
+termasuk analisis sistem dan pengembangan web dasar</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h3>Proyek</h3>
+<ul class="proyek-list">
+
+<li><strong>Website Biodata HTML</strong> — Halaman web biodata personal menggunakan
+HTML</li>
+<li><strong>Perancangan Basis Data &amp; ERD</strong> — Tugas perancangan sistem basis
+data menggunakan Entity Relationship Diagram (ERD)</li>
+</ul>
+</section>
+
+<section class="section">
+<h3>Hobi</h3>
+<ul class="hobi-list">
+<li> Membaca</li>
+<li> Ngoding</li>
+<li> Menonton</li>
+<li> Gaming</li>
+<li> Memasak</li>
+</ul>
+</section>
+
+<section class="section">
+<h3>Info Tambahan</h3>
+<details>
+<summary>Referensi &amp; Informasi Lainnya</summary>
+<p>
+Referensi dapat diberikan atas permintaan. Bersedia ditempatkan di seluruh wilayah
+
+Indonesia.
+Status: <strong>Aktif kuliah</strong>, tersedia untuk kerja paruh waktu atau magang.
+</p>
+</details>
+</section>
+
+</main>
+
+</div>
+
+</body>
+</html>
